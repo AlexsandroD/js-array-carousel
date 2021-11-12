@@ -51,6 +51,7 @@ const itemsColLeft = document.querySelector('.col-1');
 itemsColLeft.innerHTML = items;
 
 const item = document.getElementsByClassName('img-container-main')
+
 let activeItem = 0;
 item[activeItem].classList.add('active')
 
@@ -67,49 +68,59 @@ const itemsColRight = document.querySelector('.img-container');
 itemsColRight.innerHTML = items;
 
 const containerThumb = document.getElementsByClassName("thumber-nail");
-let activeThumbItem = 0;
-containerThumb[activeThumbItem].classList.add('active-t');
+containerThumb[activeItem].classList.add('active-t');
 
 
 
 // // ----sezione bottoni----
+
 const prev = document.getElementById('arrow-up');
 const next = document.getElementById('arrow-down');
 
 
+
 next.addEventListener('click', function(){
 
+if(activeItem < imgArray.length - 1){
 
-    if(activeItem < imgArray.length -1);
-
-
-    item[activeItem++].classList.remove('active');
-    item[activeItem].classList.add('active');;
-
-    containerThumb[activeThumbItem++].classList.remove('active-t');
-    containerThumb[activeThumbItem].classList.add('active-t');
     
+        item[activeItem].classList.remove('active');
+        containerThumb[activeItem].classList.remove('active-t');
+
+        activeItem++;
     
+        item[activeItem].classList.add('active');
+        containerThumb[activeItem].classList.add('active-t');
+        
+
+
+
+}
+
 
 })
-
 
 prev.addEventListener('click', function(){
 
+    if(activeItem > 0){
+    
+        
+            item[activeItem].classList.remove('active');
+            containerThumb[activeItem].classList.remove('active-t');
 
-    if(activeItem > 0 );
-
-
-    item[activeItem--].classList.remove('active');
-    item[activeItem].classList.add('active');;
-
-    containerThumb[activeThumbItem--].classList.remove('active-t');
-    containerThumb[activeThumbItem].classList.add('active-t');
+        
+            activeItem--;
+        
+            item[activeItem].classList.add('active');
+            containerThumb[activeItem].classList.add('active-t');
+            
     
     
-
-})
-
+    
+    }
+    
+    
+    })
 
 
 
