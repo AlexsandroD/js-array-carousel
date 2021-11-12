@@ -1,3 +1,6 @@
+
+// ----array----
+
 const imgArray = [
     '../img/01.jpg',
     '../img/02.jpg',
@@ -20,47 +23,92 @@ const text = [
     'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ]
 
+// ----colonna di sinistra----
+
+
 
 console.log(imgArray)
 let items = '';
 let city ='';
 let descrizione = '';
-let thumbernail = '';
 
-for(i = 0; i < imgArray.length &&  i < title.length && i < text.length; i++){
+
+for(let i = 0; i < imgArray.length &&  i < title.length && i < text.length; i++){
     items += 
     `
-
+    <div class="img-container-main">
     <img class="pictures-main" src="${imgArray[i]}"  "alt="${title[i]}">
     <div class="text">
     <h1 class="city">${title[i]}</h1>
     <p class="description">${text[i]}</p>
     </div>
-    `};
+    </div>
 
-for(i = 0; i < imgArray.length; i++){
-    thumbernail += ` 
-    <div id="arrow-prev">&uarr;</div>
-    <div id="arrow-next">&darr;</div>
+    `
+};
+
+const itemsColLeft = document.querySelector('.col-1');
+itemsColLeft.innerHTML = items;
+
+const item = document.getElementsByClassName('img-container-main')
+let activeItem = 0;
+item[activeItem].classList.add('active')
+
+
+// ---colonna destra----
+
+for(let i = 0; i < imgArray.length; i++){
+    items += `   
     <div class="thumber-nail"><img src="${imgArray[i]}" alt="${title[i]}" class="pictures-thumb">
     </div>`
 };
 
-const itemsColRight = document.querySelector('.col-2');
-itemsColRight.innerHTML = thumbernail;
+const itemsColRight = document.querySelector('.img-container');
+itemsColRight.innerHTML = items;
 
-const containerThumb = document.querySelector('.thumber-nail');
-containerThumb.classList.add('active-t');
-
-const itemsColLeft = document.querySelector('.col-1');
-itemsColLeft.innerHTML = items;
-const item = document.querySelector('.pictures-main');
-item.classList.add('active');
-const textContainer = document.querySelector('.text');
-textContainer.classList.add('text-active')
+const containerThumb = document.getElementsByClassName("thumber-nail");
+let activeThumbItem = 0;
+containerThumb[activeThumbItem].classList.add('active-t');
 
 
 
+// // ----sezione bottoni----
+const prev = document.getElementById('arrow-up');
+const next = document.getElementById('arrow-down');
+
+
+next.addEventListener('click', function(){
+
+
+    if(activeItem < imgArray.length -1);
+
+
+    item[activeItem++].classList.remove('active');
+    item[activeItem].classList.add('active');;
+
+    containerThumb[activeThumbItem++].classList.remove('active-t');
+    containerThumb[activeThumbItem].classList.add('active-t');
+    
+    
+
+})
+
+
+prev.addEventListener('click', function(){
+
+
+    if(activeItem > 0 );
+
+
+    item[activeItem--].classList.remove('active');
+    item[activeItem].classList.add('active');;
+
+    containerThumb[activeThumbItem--].classList.remove('active-t');
+    containerThumb[activeThumbItem].classList.add('active-t');
+    
+    
+
+})
 
 
 
