@@ -84,18 +84,23 @@ next.addEventListener('click', function(){
 if(activeItem < imgArray.length - 1){
 
     
-        item[activeItem].classList.remove('active');
-        containerThumb[activeItem].classList.remove('active-t');
+    item[activeItem].classList.remove('active');
+    containerThumb[activeItem].classList.remove('active-t');
 
-        activeItem++;
-    
-        item[activeItem].classList.add('active');
-        containerThumb[activeItem].classList.add('active-t');
-        
+    activeItem++;
 
+    item[activeItem].classList.add('active');
+    containerThumb[activeItem].classList.add('active-t');
+    }else if(activeItem = imgArray.length - 1){
+    item[activeItem].classList.remove('active');
+    containerThumb[activeItem].classList.remove('active-t');
 
+    activeItem = 0;
 
-}
+    item[activeItem].classList.add('active');
+    containerThumb[activeItem].classList.add('active-t'); 
+    }
+
 
 
 })
@@ -104,23 +109,30 @@ prev.addEventListener('click', function(){
 
     if(activeItem > 0){
     
-        
-            item[activeItem].classList.remove('active');
-            containerThumb[activeItem].classList.remove('active-t');
+
+        item[activeItem].classList.remove('active');
+        containerThumb[activeItem].classList.remove('active-t');
+
+
+        activeItem--;
+
+        item[activeItem].classList.add('active');
+        containerThumb[activeItem].classList.add('active-t');
 
         
-            activeItem--;
-        
-            item[activeItem].classList.add('active');
-            containerThumb[activeItem].classList.add('active-t');
-            
-    
-    
-    
+    }else if(activeItem == 0){
+
+        item[activeItem].classList.remove('active');
+        containerThumb[activeItem].classList.remove('active-t');
+
+        activeItem = imgArray.length -1;
+
+        item[activeItem].classList.add('active');
+        containerThumb[activeItem].classList.add('active-t'); 
     }
     
     
-    })
+})
 
 
 
